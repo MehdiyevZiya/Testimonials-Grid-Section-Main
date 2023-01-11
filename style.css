@@ -1,0 +1,198 @@
+:root {
+    /* Colors */
+    
+    /* Primary */
+    
+    --Moderate_violet: hsl(263, 55%, 52%);
+    --Very_dark_grayish_blue: hsl(217, 19%, 35%);
+    --Very_dark_blackish_blue: hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%);
+    
+    /* Neutral */
+    
+    --Light_gray: hsl(0, 0%, 81%);
+    --Light_grayish_blue: hsl(210, 46%, 95%);
+    
+    /* Note for text colors:
+    1. "Verified Graduate" has the same color as the person's name with 50% opacity
+    2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity */
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  h1, h2, h3 {
+    line-height: 1;
+  }
+
+/* general styling */
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif; 
+    background-color: var(--Light_grayish_blue);
+    font-size: 13px
+}
+.container {
+    margin: 4rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, min-content);
+    row-gap: 1.8rem;
+}
+.daniel {
+    background-color: var(--Moderate_violet);
+}
+.jonathan, 
+.patrick {
+    background-color: var(--Very_dark_grayish_blue);
+}
+.jeanette, 
+.kira {
+    background-color:var(--White);
+}
+.quote__cards {
+    padding: 1.5rem 2rem 2rem;
+    border-radius: 0.5rem;
+}
+.quoter__person {
+    display: flex;
+    align-items: center;
+}
+.quote__cards h1 {
+    margin: 1rem 0;
+    font-size: 20.1px;
+    line-height: 1.2;
+}
+.quoter__person img {
+    width: 2rem;
+    border-radius: 50%;
+}
+.quoter__person ul {
+    list-style-type: none;
+    color: var(--Light_gray);
+    margin-left: 1rem;
+}
+.quoter__person ul li:last-child {
+    color: hsl(0, 0%, 81%, 0.5);
+}
+.daniel img {
+    border: 2px solid hsl(0, 0%, 81%, 0.5);
+}
+.daniel h1, 
+.jonathan h1, 
+.patrick h1 {
+    color: var(--White);
+}
+.daniel p, 
+.jonathan p, 
+.patrick p {
+    color: hsl(0, 0%, 81%, 0.7);
+}
+.jeanette p, 
+.kira p {
+    color: hsl(217, 19%, 35%, 0.7);
+}
+.jeanette ul, 
+.kira ul {
+    color: var(--Very_dark_blackish_blue);
+}
+.jeanette ul li:last-child, 
+.kira ul li:last-child {
+    color: hsl(219, 29%, 14%, 0.5);
+}
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, min-content);
+        gap: 1.5rem;
+    }
+    .kira {
+        grid-column: 1 / span 2;
+    }
+}
+@media (min-width:1024px) {
+    html {
+        height: 100%;
+    }
+    body {
+        min-height: 100%;
+        display: grid;
+        place-content: center;
+    }
+    .container {
+        max-width: 70rem;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, min-content);
+        gap: 2rem;
+        margin: 0 1.5rem;
+    }
+    .quote__cards {
+        padding: 1.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .quote__cards h1 {
+        margin: 0;
+    }
+    .daniel {
+        grid-column: 1 / span 2;
+    }
+    .patrick {
+        grid-column: 2 / span 2;
+    }
+    .kira {
+        grid-column: 4;
+        grid-row: 1 / span 2;
+    }
+    .daniel p, 
+    .jonathan p {
+        margin-bottom: 0.5rem;
+    }
+    .kira h1 {
+        margin: 1rem 0;
+    }
+}
